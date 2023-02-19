@@ -1,6 +1,6 @@
 import { BaseClass } from "./base.js";
 
-class MyPlane extends BaseClass {
+export class MyPlane extends BaseClass {
   constructor() {
     super('', '', 'myPlane');
 
@@ -9,7 +9,7 @@ class MyPlane extends BaseClass {
 
   bindEvent() {
     this.el.ontouchstart = this.touchstart;
-    this.el.ontouchend = this.touchmove;
+    this.el.ontouchend = this.touchend;
   }
 
   touchstart(e) {
@@ -17,8 +17,12 @@ class MyPlane extends BaseClass {
     container.ontouchmove = touchmove;
   }
 
-  touchmove() {
+  touchend() {
     container.ontouchmove = null
+  }
+
+  boom() {
+    this.el.classList.add('plane-boom')
   }
 }
 

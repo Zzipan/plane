@@ -29,6 +29,9 @@ html,body {
   width: 90%;
   background-color: rgb(34 50 34 / 75%);
   color: #fff;
+
+  backdrop-filter: blur(15px);
+  box-shadow: 1px 1px 10px #333;
 }
 
 .wrap hr {
@@ -41,7 +44,7 @@ html,body {
   left: 50%;
   transform: translateX(-50%); */
   margin: auto;
-  background-color: rgba(113, 183, 43);
+  /* background-color: rgba(113, 183, 43); */
   padding: 10px 20px;
   color: #fff;
   border: none;
@@ -90,17 +93,17 @@ html,body {
 }
 
 .bullet {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 30px;
   background: url('../img/bullet.png') no-repeat center / 100% 100%;
   position: absolute;
   transform: translateX(-50%);
 }
 
 .boom {
-  /* background-image: url('../img/explosion19.png') !important; */
-  /* background-size: auto auto !important; */
-  animation: boom 2s 1;
+  /* background-image: url('../img/explosion19.png') !important;
+  background-size: auto auto !important; */
+  animation: boom 1s 1;
 }
 
 @keyframes boom {
@@ -121,6 +124,28 @@ html,body {
   }
 }
 
+.plane-boom {
+  animation: planeBoom .75s 1s infinite;
+}
+
+@keyframes planeBoom {
+  50% {
+    background-image: url('../img/explosion5.png');
+  }
+  65% {
+    background-image: url('../img/explosion10.png');
+  }
+  75% {
+    background-image: url('../img/explosion15.png');
+  }
+  85% {
+    background-image: url('../img/explosion19.png');
+  }
+  95% {
+    background-image: url('../img/explosion5.png');
+  }
+}
+
 .planeIcon {
   height: 100px;
   line-height: 100px;
@@ -135,4 +160,52 @@ html,body {
   100% {
     transform: rotateZ(360deg);
   }
+}
+
+#gameOver {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  z-index: 20;
+  background-color: rgba(0, 0, 0, .75);
+  display: none;
+}
+
+#battlefield {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+}
+
+.flexBox {
+  display: flex;
+  align-items: center;
+}
+
+.flexBox a {
+  flex: .3;
+}
+
+#scoreDom {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+  color: #fff;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block !important;
 }
