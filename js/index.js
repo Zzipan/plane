@@ -35,7 +35,7 @@ function playGame() {
 
   timer = setInterval(timerAction, 20);
   // timerAction()
-  playSound('./audio/bgm.mp3', true);
+  playSound('../audio/bgm.mp3', true);
 }
 
 let mark = 0;
@@ -68,7 +68,7 @@ function timerAction() {
   if (mark % 5 === 0) {
     const bullet = new Bullet(myPlane.el.offsetLeft, myPlane.el.offsetTop);
     pool.bullets.push(bullet);
-    playSound('./audio/bullet.mp3');
+    playSound('../audio/bullet.mp3');
 
   }
 
@@ -165,7 +165,7 @@ function caculator() {
             enemy.planIsBoom = true;
             pool.enemys.splice(index, 1);
             pool.bullets.splice(i, 1);
-            playSound('./audio/boom.mp3');
+            playSound('../audio/boom.mp3');
           }
         }
       } else {
