@@ -2,6 +2,10 @@ import bgAnima from './background.js';
 import { Enemy } from './enemy.js';
 import { MyPlane } from './myPlane.js';
 import { Bullet } from './bullet.js';
+// 音频
+// import bgm from '../audio/bgm.mp3';
+// import bullet from '../audio/bullet.mp3';
+// import boom from '../audio/boom.mp3';
 
 const playBtn = document.querySelector('.btn-play');
 const reStart = document.querySelector('.btn-reStart');
@@ -35,7 +39,7 @@ function playGame() {
 
   timer = setInterval(timerAction, 20);
   // timerAction()
-  playSound('../audio/bgm.mp3', true);
+  bgm.play();
 }
 
 let mark = 0;
@@ -68,8 +72,7 @@ function timerAction() {
   if (mark % 5 === 0) {
     const bullet = new Bullet(myPlane.el.offsetLeft, myPlane.el.offsetTop);
     pool.bullets.push(bullet);
-    playSound('../audio/bullet.mp3');
-
+    bulletAudio.play();
   }
 
   pool.bullets.forEach((item, index) => {
@@ -93,17 +96,6 @@ function timerAction() {
   caculator();
 
   // timer = requestAnimationFrame(timerAction);
-}
-
-function playSound(url, loop = false){    
-  let mp3 = new Audio(url) // 创建音频对象
-  console.log(mp3.currentTime)
-  mp3.loop = loop
-  mp3.play() // 播放
-
-  mp3.addEventListener('ended', function () {
-    console.log(url + "播放结束");
-  }, false);
 }
 
 function onGameOver() {
@@ -165,7 +157,7 @@ function caculator() {
             enemy.planIsBoom = true;
             pool.enemys.splice(index, 1);
             pool.bullets.splice(i, 1);
-            playSound('../audio/boom.mp3');
+            boomAudio.play();
           }
         }
       } else {
