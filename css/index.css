@@ -23,7 +23,7 @@ html,body {
 .wrap{
   text-align: center;
   position: absolute;
-  top: 40%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 90%;
@@ -76,8 +76,8 @@ html,body {
 }
 
 .boss {
-  width: 192px;
-  height: 192px;
+  width: 152px;
+  height: 152px;
   z-index: 8;
   /* background-color: #fff; */
 }
@@ -208,4 +208,40 @@ html,body {
 
 .show {
   display: block !important;
+}
+
+.formGropu {
+  /* display: flex;
+  align-items: center;
+  width: 75%;
+  margin: 0 auto 1rem; */
+}
+.form-group {
+  padding: 0 .5rem;
+}
+
+.select {
+  flex: 1;
+  margin-left: 10px;
+  background: linear-gradient(90deg, transparent, rgb(158 148 148 / 50%), transparent);
+  border: none;
+  color: #fff;
+  border-radius: 0;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  /* border-image: linear-gradient(90deg, transparent, #000, transparent); */
+  border-color: transparent;
+  text-align: center !important;
+  text-align-last: center;
+  display: block;
+  outline: none;
+}
+
+.form-control:focus {
+  color: #fff;
+  border-color: #eee;
+  /* color: #fff; */
+  background: linear-gradient(90deg, transparent, rgb(158 148 148 / 50%), transparent);
+  outline: 0;
+  box-shadow: none;
 }

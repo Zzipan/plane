@@ -20,7 +20,7 @@ export class Enemy extends BaseClass {
 
   move() {
     let elTop = this.y;
-    elTop += 3;
+    elTop += 5;
 
     this.el.style.top = elTop + 'px';
     this.y = elTop;

@@ -2,11 +2,6 @@ import bgAnima from './background.js';
 import { Enemy } from './enemy.js';
 import { MyPlane } from './myPlane.js';
 import { Bullet } from './bullet.js';
-// 音频
-// import bgm from '../audio/bgm.mp3';
-// import bullet from '../audio/bullet.mp3';
-// import boom from '../audio/boom.mp3';
-
 const playBtn = document.querySelector('.btn-play');
 const reStart = document.querySelector('.btn-reStart');
 const resetBtn = document.querySelector('.btn-reset');
@@ -37,8 +32,8 @@ function playGame() {
   // plane();
   myPlane = new MyPlane();
 
-  timer = setInterval(timerAction, 20);
-  // timerAction()
+  // timer = setInterval(timerAction, 20);
+  timerAction()
   bgm.play();
 }
 
@@ -65,12 +60,12 @@ function timerAction() {
     pool.enemys.push(enemy);
   }
   //  else if (mark % 249 == 0) {
-  //   const enemy = new Enemy(Math.random() * w - 192, -100, 'boss', 100, 10, 5);
+  //   const enemy = new Enemy(Math.random() * w - 152, -100, 'boss', 100, 10, 5);
   //   pool.enemys.push(enemy);
   // }
 
-  if (mark % 5 === 0) {
-    const bullet = new Bullet(myPlane.el.offsetLeft, myPlane.el.offsetTop);
+  if (mark % select.value === 0) {
+    const bullet = new Bullet(myPlane.el.offsetLeft, myPlane.el.offsetTop - 45);
     pool.bullets.push(bullet);
     bulletAudio.play();
   }
@@ -95,7 +90,7 @@ function timerAction() {
 
   caculator();
 
-  // timer = requestAnimationFrame(timerAction);
+  timer = requestAnimationFrame(timerAction);
 }
 
 function onGameOver() {
